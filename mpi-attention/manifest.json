@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "benchmark": "mpi-attention scaled dot-product throughput",
+  "seed": 20260908,
+  "tolerance": {
+    "metric": "rel_frobenius",
+    "tol": 0.01
+  },
+  "timing": {
+    "warmup": 1,
+    "repeats": 5,
+    "stat": "median",
+    "judge_runs": 3,
+    "overhead_budget_s": 60
+  },
+  "parallelism": {
+    "max_ranks": 96,
+    "max_ranks_times_threads": 192
+  },
+  "plausibility": {
+    "max_tier_gflops": 40000
+  },
+  "tiers": [
+    {
+      "tier_id": "short",
+      "B": 48,
+      "H": 16,
+      "S": 512,
+      "D": 64,
+      "flops": 51539607552,
+      "reference_output": "data/reference/short_output.bin",
+      "reference_sha256": "bb945e96e96126627120a76bfae50e3f209a4fddcc95d4f26f7bbad8423b61e1",
+      "baseline_time_s": 0.8556,
+      "omp_ref_time_s": 0.9441,
+      "serial_ref_time_s": 12.3099
+    },
+    {
+      "tier_id": "mixed",
+      "B": 4,
+      "H": 8,
+      "S": 2048,
+      "D": 128,
+      "flops": 68719476736,
+      "reference_output": "data/reference/mixed_output.bin",
+      "reference_sha256": "d2d3ace1a7fc20865dcc350ed1188326bfcdf9c031587f50fb60cca03e5657c6",
+      "baseline_time_s": 1.0895,
+      "omp_ref_time_s": 1.1718,
+      "serial_ref_time_s": 16.779
+    },
+    {
+      "tier_id": "long",
+      "B": 1,
+      "H": 4,
+      "S": 8192,
+      "D": 64,
+      "flops": 68719476736,
+      "reference_output": "data/reference/long_output.bin",
+      "reference_sha256": "6b5b0da575a60069d2b343d2d8e7d17d1bea7d3000e1762a8d49133c37b6a47c",
+      "baseline_time_s": 4.2235,
+      "omp_ref_time_s": 4.7678,
+      "serial_ref_time_s": 16.5686
+    }
+  ],
+  "frozen_files": {
+    "src/common/att_types.h": "13781d3f065ab4f8fba296d08043a7b34df8e55b43eebab1582f968ebd73582e",
+    "src/common/prng.h": "cf776706ee2352d06abc7c221c558acf48ea0704bd91631191e8741a7690c069",
+    "src/common/prng.c": "8adfeada98bbb5f545dedfc78dc5bbbd62bb34366583b3d7dae6950af47915f8",
+    "src/common/data.h": "7c5d1def40b6d6e76187307f634be34c5d0b9ef9be6de086b0b52863038729ed",
+    "src/common/data.c": "44d0916da68432c4184846172db06087dd6c73f9ae5b99b07e186f3122e7f795",
+    "src/common/sha256.h": "272172e1ff0b4da011053cfca70c2843c49ec837003fa6dd99f69a749f671dbb",
+    "src/common/sha256.c": "90f48a28203c6792ecadefba461dbd3818652bad737d80aaab8f6daf692889b9",
+    "src/common/io_util.h": "2df9e13fc1c2205bc21faf418b8d141eb09d4802c6a18795eb518afc6b203f26",
+    "src/common/io_util.c": "fad4a115e858003c7dc0b20d5be3e1063363d2c33c442e31202b1775a08b21a8",
+    "src/common/verify.h": "7f4c4e9aa553dd85754cf4604ae5a33b20acfe3ec156cc35efdd48dd7114940d",
+    "src/common/verify.c": "255b1909efa684bab9c5796c48763badc85050d116e4f4125a48bf1762167d17",
+    "src/harness/harness_args.h": "e59381808b659ce65c5ccd210fa958476ecf383c6fa8e9ca0a65fd64c9e65ede",
+    "src/harness/harness_args.c": "54e3d0cdd7256aaa026c748cf120220f380bb5e98b22c2e83ebe6b8b1c4bdbf8",
+    "src/harness/results.h": "df19b8dc7784034fd0123ac9f51800d9aa8f4c76e2d6ef0b04e6018404db2640",
+    "src/harness/results.c": "2441f56d710bced2df90c52e0b806e9fc04fdeedf3712ae1ff86918ad980e201",
+    "src/harness/bench_main.c": "535dae23289c30272237cfc1cdc94aed352c72a34ae883782750decf3082f271",
+    "src/harness/omp_main.c": "1e11bb4e44c6463be9c67fb460ce2f45dc8fef2b4e17f68066e72ffacdf4f452",
+    "src/harness/ref_main.c": "56e37059aac63f616e1f1b627a6bcb41e5943818f6039d3aa8536f6005854a38",
+    "src/harness/report_main.c": "749b8508f24a1e016d0099cba37ad0a0d01527a66fef249c4a3322ad42f07f07",
+    "src/reference/attention_ref.c": "3b505e1772bc4f96379ff081054237427cb310fe89428e43962063abccceb233",
+    "src/reference/attention_omp.c": "43ca06a536f1534ffede87b13ce9a29bff68803f51327c1808e7e23a82a05391",
+    "scripts/selftest.sh": "7b38547936528c1d40e2ae8a5c0b631b8f7ea39d84ae172f10e50a865ed6533e",
+    "src/reference/attention_serial.c": "8fd64f89c9ca0fe4b62adda329f600c9a6a2471286feab0313034e7369506ad6",
+    "src/harness/serial_main.c": "52632f1d7f9cfc4f63f9582a7e8ee20f71487f90e38afa62f1b93db1fe080675",
+    "src/reference/attention_variants.h": "62c9f19b812de616667bf72584f1975683f3fd1609eccc0857e0c1e76428c0af",
+    "src/reference/README.md": "3667917bb808cad918e48bb138f6095e32c556707b975bca95d03dc7e5297185",
+    "src/reference/attention.h": "88455f3bf5041383b3172d962e3a77960b83425635a7cd14aefb04387edbeddd"
+  },
+  "baseline_geo_gflops": 39.54,
+  "omp_ref_geo_gflops": 35.87,
+  "notes": {
+    "tolerance_calibration": "3 精度变体 x 3 seeds x 3 tiers 实测 max E:fp32=1.62e-6,bf16dot+fp32acc=7.19e-4,bf16full=2.43e-3;tol=0.01 给 bf16-full 约 4x 裕量。标定基于 v1 真值(blocked-online fp64);v2 真值为两遍 fp64,相对偏移 ~1e-16,不影响结论。三个 fp32 实现(serial/omp/baseline)现位级一致,E≈1.6e-6",
+    "machine": "2x Xeon Platinum 8476C (96C/192T, 2 NUMA), OpenMPI 4.1.5, gcc 12.3.1 (TencentOS 4)",
+    "mpirun_startup_note": "OpenMPI 4.1.5 在本机(32+ NIC)PMIx wireup 为 O(N^2),96 rank 启动约 14s;计分用内核区 MPI_Wtime,不受影响;入口脚本用单次 mpirun 跑全部档位摊销启动",
+    "serial_reference": "单核朴素串行(无 MPI/OpenMP,教科书两遍 softmax),2026-09-08 实测 runs=3 中位;~3-4 GF/s/核",
+    "baseline_description": "v3(2026-09-08):baseline 自包含三节结构(切分/计算/汇总),模块已并入(原 gemm/softmax/comm 删除);attention.h 与 baseline 均在 src/reference/(baseline 为该目录唯一预置可改文件,其余冻结)。自包含合并使 gcc 可内联,np=16 实测 60.2/63.1/16.3 GF/s(geo 39.58,较 v2 的 33.31 提速 ~19%)。np=96 抽查:long 档 5.9 GF/s(仅 4 活跃 rank)。序列维并行仍是选手头号优化空间",
+    "structure": "src/ 三层:common(冻结基础设施)、harness(冻结计时/报告)、reference(attention 实现全集:三冻结参照 + 选手起点 baseline + 契约attention.h + 对照/自由度 README)",
+    "error_display": "误差展示口径为百分比:tol=0.01 即 1%;人读输出(bench/judge 控制台、judge_result.json 的 rel_err_pct)用百分比,机器字段(tier JSON 的 self_check_rel_err、judge 的 rel_err)保留原始 double,两者换算恒为 x100"
+  },
+  "serial_ref_geo_gflops": 4.15
+}

@@ -1,0 +1,15 @@
+# build artifacts
+bin/
+*.o
+*.d
+results/
+# local outputs
+outputs/
+*.tmp
+# fp64 参考输出:可由 gen_ref 确定性再生(sha256 冻结在 manifest.json),
+# 裁判/选手按需运行 scripts/regen_reference.sh
+data/reference/*.bin
+# editor
+*.swp
+.idea/
+.vscode/

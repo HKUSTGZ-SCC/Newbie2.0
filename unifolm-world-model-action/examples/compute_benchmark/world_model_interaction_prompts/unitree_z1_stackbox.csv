@@ -1,0 +1,2 @@
+videoid,contentUrl,duration,data_dir,instruction,dynamic_confidence,dynamic_wording,dynamic_source_category,embodiment,fps
+5,x,x,unitree_z1_stackbox,"Pick up the red cup on the table.",x,x,x,Unitree Z1 Robot Arm,30

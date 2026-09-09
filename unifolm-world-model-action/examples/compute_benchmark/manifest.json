@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "purpose": "Five fixed, file-system-independent inputs for UnifoLM world-model compute benchmarking.",
+  "prompt_dir": "examples/compute_benchmark/world_model_interaction_prompts",
+  "ground_truth_dir": "examples/compute_benchmark/ground_truth",
+  "checkpoint": {
+    "path": "downloads/UnifoLM-WMA-0-Dual/unifolm_wma_dual.ckpt",
+    "huggingface_repo": "unitreerobotics/UnifoLM-WMA-0-Dual",
+    "revision": "2c6b6a9eb4a1386a637cc10b2ddb9ee139057069",
+    "sha256": "f5c5202b41bbda777e2a861104a8886e9c2b0cd981d496a8bffaa67e0149c7ef"
+  },
+  "seed": 123,
+  "model_config": {
+    "batch_size": 1,
+    "height": 320,
+    "width": 512,
+    "video_length": 16,
+    "ddim_steps": 50,
+    "ddim_eta": 1.0,
+    "timestep_spacing": "uniform_trailing",
+    "guidance_rescale": 0.7,
+    "perframe_ae": true
+  },
+  "samples": [
+    {
+      "dataset": "unitree_z1_stackbox",
+      "case": 1,
+      "videoid": 5,
+      "frame_stride": 4,
+      "original_n_iter": 12,
+      "input_sha256": {
+        "csv": "2581497e256de7df25271e83c81c7f7f2b1348d79b2451060527b2520b684538",
+        "image": "edc3d8a7bf792b7b540f70ad79031555460cafb14c1ab5d2fc8101db03e53cd0",
+        "transition": "8931a8262eb7a26538facbdea95d90116ea1422acf08fbd96b40e73222b4a28f",
+        "stats": "e35f011d1ad4442a47847ef964b70fabd7852ed0198ff7bd52f0a061323f5b09"
+      }
+    },
+    {
+      "dataset": "unitree_z1_dual_arm_stackbox",
+      "case": 1,
+      "videoid": 5,
+      "frame_stride": 4,
+      "original_n_iter": 7,
+      "input_sha256": {
+        "csv": "4eff6ac4bc7776d45043e2680892768a08b90cc6d7aaa5ddf310be4334585d97",
+        "image": "f066b504a1073de889aa337591d08bf48cd15d0cfb9c7fcb12a453742492c34e",
+        "transition": "6f16239f422f1dddddb84a995191bafb07049daa7b33333edf27cf6a574ab121",
+        "stats": "ce91a237dd3491e0a271bfc6fe31112a51ec439fc4e7cb74a909c1a41e047330"
+      }
+    },
+    {
+      "dataset": "unitree_z1_dual_arm_stackbox_v2",
+      "case": 1,
+      "videoid": 5,
+      "frame_stride": 4,
+      "original_n_iter": 11,
+      "input_sha256": {
+        "csv": "be5a655740f3c3516967bd9a676525c5c523540e90362be5afb43a553c7d7233",
+        "image": "80e04948693fb1a0210fe8b0efdcd3d143e10a02e725bc3d1c51494c9c065dc5",
+        "transition": "ae82b7a98834c91ccb64daf673337ef7e01c4cb199440b9b5831c9958f75d7d5",
+        "stats": "b8881382422bd552c5ac578a441c3733c0ca5413ebdaebfdf9cc33462dd2d2d4"
+      }
+    },
+    {
+      "dataset": "unitree_z1_dual_arm_cleanup_pencils",
+      "case": 1,
+      "videoid": 0,
+      "frame_stride": 4,
+      "original_n_iter": 8,
+      "input_sha256": {
+        "csv": "c4e463ef8c6960fc9052c1a6400e0e18da32ec2ef0289c21bb3634e167d071b1",
+        "image": "781387492784b27a986c6d84e17f8c284408d5d21891e9bb0b38195b8e52248a",
+        "transition": "492c3ddd2bf540de9cd2f86e5c26fc35c173725060e3e66650c61751d122678b",
+        "stats": "bd70a970e4d2fe1cce2772be5fa452ab439b1d025972ce1810d3c81e4649ce85"
+      }
+    },
+    {
+      "dataset": "unitree_g1_pack_camera",
+      "case": 1,
+      "videoid": 0,
+      "frame_stride": 6,
+      "original_n_iter": 11,
+      "input_sha256": {
+        "csv": "237668573e2917f5d0c5a4d560e580aa5a16494ab2e0f4dc1f3b2f5941e002eb",
+        "image": "dc4250c4a58735a703d055d998b7c4f257a8714b31614ad83cb6ab1a0b7dddd3",
+        "transition": "52a29c7f3e9093f18d405cb018f05c921b261258d7a08483da62ada89b061f2c",
+        "stats": "190bae584bd95d2006e9c3c00d332d5dab81bcce75ae57087ccf103a738a344b"
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+# ===== 大文件 / 本地产物,一律不入库 =====
+# unifolm:16GB ckpt、conda env、评测输出、分发包(局部 .gitignore 亦有,顶层兜底)
+unifolm-world-model-action/downloads/
+unifolm-world-model-action/.conda/
+unifolm-world-model-action/outputs/
+unifolm-world-model-action/dist/
+# unifolm 上游 README 演示动图(~92MB,非必需)
+unifolm-world-model-action/assets/gifs/
+
+# mpi-attention:构建产物、本地结果、fp64 参考(可 scripts/regen_reference.sh 确定性再生)
+mpi-attention/bin/
+mpi-attention/results/
+mpi-attention/data/reference/*.bin
+mpi-attention/outputs/
+
+# ===== 通用 =====
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.egg-info/
+build/
+*.so
+*.swp
+.idea/
+.vscode/
+.DS_Store
+*.log
+*.tmp

@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.conda/
+downloads/
+outputs/
+dist/
+*.egg-info/
