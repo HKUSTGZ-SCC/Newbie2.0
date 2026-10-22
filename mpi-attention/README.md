@@ -1,6 +1,6 @@
 # mpi-attention
 
-校内赛第三题:**纯 CPU、纯 C、OpenMPI** 的 scaled dot-product attention
+校内赛第一题:**纯 CPU、纯 C、OpenMPI** 的 scaled dot-product attention
 吞吐赛。无任何外部数学库(GEMM/softmax/通信全手写),fp64 参考验证 +
 相对误差阈值,比拼三档负载的 GFLOP/s 几何平均。
 
